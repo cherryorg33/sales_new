@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const sales_1 = require("../controller/sales");
+const AsyncHandler_1 = require("../middleware/AsyncHandler");
+const router = (0, express_1.Router)();
+router.post("/", (0, AsyncHandler_1.asyncHandler)(sales_1.createSaleBill));
+router.get("/", (0, AsyncHandler_1.asyncHandler)(sales_1.getAllSaleBills));
+router.get("/:id", (0, AsyncHandler_1.asyncHandler)(sales_1.getSaleBillById));
+router.delete("/:id", (0, AsyncHandler_1.asyncHandler)(sales_1.deleteSaleBill));
+exports.default = router;

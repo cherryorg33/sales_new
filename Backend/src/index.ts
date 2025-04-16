@@ -26,8 +26,15 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+
 // routes
 app.use("/api/sales", Salesroutes);
+
+app.use('/', async (req: Request, res: any) => {
+  return res.send('server is running');
+});
+
+
 
 // global decclare values
 declare global {
